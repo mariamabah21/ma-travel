@@ -6,13 +6,15 @@ import LogIn from "@pages/login";
 import NotFoundPage from "@pages/not-found";
 import SignUp from "@pages/sign-up";
 
+import { AppRoutes } from "./AppRoutes";
+
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path={AppRoutes.home} element={<Home />} />
       <Route element={<AuthLayout />}>
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path={AppRoutes.signUp} element={<SignUp />} />
+        <Route path={AppRoutes.login} element={<LogIn />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
