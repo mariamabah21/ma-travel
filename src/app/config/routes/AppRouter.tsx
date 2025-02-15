@@ -14,7 +14,7 @@ export default function AppRouter() {
     <Routes>
       <Route path={AppRoutes.home} element={<Home />} />
       <Route element={<AuthLayout />}>
-        <Route path={AppRoutes.signUp} element={<SignUp />} />
+        <Route path={AppRoutes.singUp} element={<SignUp />} />
         <Route path={AppRoutes.login} element={<LogIn />} />
       </Route>
       <Route path={AppRoutes.dashboard} element={<Dashboard />} />
