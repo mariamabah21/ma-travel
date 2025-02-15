@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useBreakpoints } from "src/app/hooks/useBreakpoints";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -18,10 +17,9 @@ import {
 
 import { theme } from "@config/styles";
 import AppIconButton from "@features/ui/AppIconButton";
+import { useBreakpoints } from "@hooks/useBreakpoints";
 
 import AccountSidebar from "./AccountSidebar";
-
-// add alias!!
 
 const DESKTOP_DRAWER_WIDTH = 288;
 const DESKTOP_MINIMIZED_DRAWER_WIDTH = 94;

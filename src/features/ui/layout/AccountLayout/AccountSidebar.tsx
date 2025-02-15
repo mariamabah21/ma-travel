@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useBreakpoints } from "src/app/hooks/useBreakpoints";
 
 import AddIcon from "@mui/icons-material/Add";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -21,12 +20,11 @@ import { Colors, theme } from "@config/styles";
 import { selectUser } from "@features/auth/store/authSlice";
 import AppButton from "@features/ui/AppButton";
 import Logo from "@features/ui/logo/Logo";
+import { useBreakpoints } from "@hooks/useBreakpoints";
 import { logout } from "@services/api";
 import { useAppSelector } from "@store/index";
 
 import { ACCOUNT_LINKS } from "./data";
-
-// do the alias !!!
 
 interface Props {
   onClose: () => void;
@@ -55,6 +53,7 @@ export default function AccountSidebar({ isMinimized, onClose }: Props) {
         py: 3,
         px: 2,
         height: "100%",
+        background: "white",
       }}
     >
       <Box>
@@ -71,7 +70,7 @@ export default function AccountSidebar({ isMinimized, onClose }: Props) {
           <Avatar sx={{ height: 48, width: 48, background: Colors.disabled }}>
             {userInitial}
           </Avatar>
-          {!isMinimized && <Typography variant="body1">Andrew</Typography>}
+          {!isMinimized && <Typography variant="body1">Mariama</Typography>}
         </Stack>
         <List>
           {ACCOUNT_LINKS.map(({ Icon, text, path }) => (
@@ -123,7 +122,7 @@ export default function AccountSidebar({ isMinimized, onClose }: Props) {
         </List>
         <AppButton
           fullWidth
-          LinkComponent={Link}
+          component={Link}
           href={AppRoutes.addTrip}
           onClick={onLinkClick}
           sx={{ mt: 2 }}
