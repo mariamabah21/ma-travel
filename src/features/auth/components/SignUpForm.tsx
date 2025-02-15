@@ -66,7 +66,6 @@ export default function SignUpForm() {
             id="email"
             label="Email Address"
             autoComplete="email"
-            autoFocus
             helperText={fieldState.error?.message}
             error={Boolean(fieldState.error)}
             sx={{ mb: 3, mt: 0 }}
