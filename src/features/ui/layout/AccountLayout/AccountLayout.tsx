@@ -17,9 +17,9 @@ import {
 
 import { theme } from "@config/styles";
 import AppIconButton from "@features/ui/AppIconButton";
-import { useBreakpoints } from "@hooks/useBreakpoints";
 
 import AccountSidebar from "./AccountSidebar";
+import { useBreakpoints } from "src/app/hooks/useBreakpoints";
 
 const DESKTOP_DRAWER_WIDTH = 288;
 const DESKTOP_MINIMIZED_DRAWER_WIDTH = 94;
@@ -62,8 +62,8 @@ const StyledDrawer = styled(Drawer, {
 const TOOLBAR_STYLES = { mt: 2, mb: 1 };
 
 export default function AccountLayout() {
-  const { md } = useBreakpoints();
-  const [isOpen, setOpen] = useState(true);
+  const { md, xl  } = useBreakpoints();
+  const [isOpen, setOpen] = useState(xl);
 
   const closeDrawer = () => {
     setOpen(false);
@@ -112,7 +112,7 @@ export default function AccountLayout() {
         <>
           <AppBar
             position="fixed"
-            sx={{ boxShadow: "none", background: "transparent" }}
+            sx={{ boxShadow: "none", backgroundColor: "grey.100" }}
           >
             <Toolbar sx={TOOLBAR_STYLES}>
               <IconButton
