@@ -7,6 +7,7 @@ interface Props {
   fullWidth?: boolean;
   loading?: boolean;
   endIcon?: React.ReactNode;
+  startIcon?: React.ReactNode;
   children: React.ReactNode;
   onClick?: () => void;
   component?: React.ElementType;
@@ -23,6 +24,7 @@ export default function AppButton({
   href,
   children,
   endIcon,
+  startIcon,
   sx,
   onClick,
 }: Props) {
@@ -35,6 +37,7 @@ export default function AppButton({
       type={type}
       variant={variant}
       endIcon={endIcon}
+      startIcon={startIcon}
       onClick={onClick}
       sx={{
         borderRadius: 2,
