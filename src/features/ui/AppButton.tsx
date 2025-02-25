@@ -7,10 +7,11 @@ interface Props {
   fullWidth?: boolean;
   loading?: boolean;
   endIcon?: React.ReactNode;
+  startIcon?: React.ReactNode;
   children: React.ReactNode;
   onClick?: () => void;
-  component?: React.ElementType;
-  href?: string;
+  component?: React.ElementType | undefined; // Explicitly allow undefined
+  href?: string | undefined; // Explicitly allow undefined
   sx?: SxProps<Theme>;
 }
 
@@ -23,18 +24,20 @@ export default function AppButton({
   href,
   children,
   endIcon,
+  startIcon,
   sx,
   onClick,
 }: Props) {
   return (
     <Button
       loading={loading}
-      component={component}
-      href={href}
+      component={component ?? "button"} // Ensure a default value
+      href={href ?? ""} // Ensure a default string
       fullWidth={fullWidth}
       type={type}
       variant={variant}
       endIcon={endIcon}
+      startIcon={startIcon}
       onClick={onClick}
       sx={{
         borderRadius: 2,
