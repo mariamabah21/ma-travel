@@ -11,6 +11,7 @@ import { useAuthStateSubscription } from "@services/firebase";
 
 export default function App() {
   useAuthStateSubscription();
+
   return (
     <BrowserRouter>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
