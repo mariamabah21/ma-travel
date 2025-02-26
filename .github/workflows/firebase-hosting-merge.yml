@@ -26,5 +26,3 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MA_TRAVEL_774EB }}
           channelId: live
           projectId: ma-travel-774eb
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
