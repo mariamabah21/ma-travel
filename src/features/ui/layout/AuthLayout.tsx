@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 
-import { Box } from "@mui/material";
-import { Grid2 } from "@mui/material/Unstable_Grid2";
+import { Box, Grid2 } from "@mui/material";
 
 import LoginBackground from "@features/auth/assets/login-background.png";
 import SignUpBackground from "@features/auth/assets/sign-up-background.png";
@@ -20,15 +19,13 @@ export default function AuthLayout() {
         sx={{
           minHeight: { md: "100vh" },
           height: { xs: "100vh", md: "auto" },
-          maxHeight: { xs: "webkit-fill-available", md: "auto" },
+          maxHeight: { xs: "100dvh", md: "auto" },
+          //"100dvh" "webkit-fill-available"
         }}
       >
         <Grid2
           component="div"
-          item
-          xs={false}
-          sm={4}
-          md={6}
+          columns={{ xs: 0, sm: 4, md: 6 }}
           sx={{
             backgroundImage: `url(${isLoginPage ? LoginBackground : SignUpBackground})`,
             backgroundRepeat: "no-repeat",
@@ -44,10 +41,7 @@ export default function AuthLayout() {
         />
         <Grid2
           component="div"
-          item
-          xs={12}
-          sm={8}
-          md={6}
+          columns={{ xs: 12, sm: 8, md: 6 }}
           sx={{
             display: "flex",
             alignItems: "center",
