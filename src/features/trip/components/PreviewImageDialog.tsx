@@ -4,17 +4,21 @@ import { ButtonBase, Grid } from "@mui/material";
 
 import AppDialog from "@features/ui/AppDialog";
 
-import { TRIP_PREVIEW_IMAGES, type TripPreviewImage } from "../data";
+import { TRIP_PREVIEW_IMAGES } from "../data";
+import type { Trip } from "../types";
 import UploadFileButton from "./UploadFileButton";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  onSave: (previewImage: Trip["previewImage"]) => void;
 }
 
-function PreviewImageDialog({ isOpen, onClose }: Props) {
+export default function PreviewImageDialog({ isOpen, onClose, onSave }: Props) {
   const [selectedPreviewImage, setSelectedPreviewImage] =
-    useState<null | TripPreviewImage>(null);
+    useState<Trip["previewImage"]>(null);
+
+  const onSaveClick = () => onSave(selectedPreviewImage);
 
   return (
     <AppDialog
@@ -22,10 +26,7 @@ function PreviewImageDialog({ isOpen, onClose }: Props) {
       primaryButtonText="Save"
       isOpen={isOpen}
       onClose={onClose}
-      onPrimaryButtonClick={() => {
-        // TODO: Implement
-        throw new Error("Function not implemented.");
-      }}
+      onPrimaryButtonClick={onSaveClick}
     >
       {/* Main Grid container (2 columns on xs, 3 on md) */}
       <Grid container spacing={{ xs: 0.5, md: 1.5 }} columns={{ xs: 2, md: 3 }}>
@@ -36,12 +37,14 @@ function PreviewImageDialog({ isOpen, onClose }: Props) {
                 borderRadius: 4,
                 border: 4,
                 borderColor:
-                  selectedPreviewImage?.id === image.id
+                  selectedPreviewImage?.templateImageId === image.id
                     ? "primary.main"
                     : "white",
                 overflow: "hidden",
               }}
-              onClick={() => setSelectedPreviewImage(image)}
+              onClick={() =>
+                setSelectedPreviewImage({ templateImageId: image.id })
+              }
             >
               <img
                 src={image.src}
@@ -65,5 +68,3 @@ function PreviewImageDialog({ isOpen, onClose }: Props) {
     </AppDialog>
   );
 }
-
-export default PreviewImageDialog;
