@@ -35,7 +35,7 @@ export default function PreviewImageDialog({ isOpen, onClose, onSave }: Props) {
       {/* Main Grid container (2 columns on xs, 3 on md) */}
       <Grid container spacing={{ xs: 0.5, md: 1.5 }} columns={{ xs: 2, md: 3 }}>
         {TRIP_PREVIEW_IMAGES.map((image) => (
-          <Grid item xs={1} md={1} key={image.id}>
+          <Grid item xs={1} md={1} key={image.id} component="div">
             <ButtonBase
               sx={{
                 borderRadius: 4,
@@ -61,7 +61,7 @@ export default function PreviewImageDialog({ isOpen, onClose, onSave }: Props) {
         ))}
 
         {/* Upload button */}
-        <Grid item xs={1} md={1}>
+        <Grid item xs={1} md={1} component="div">
           <UploadFileButton
             mainText="Upload preview photo"
             subText="PNG or PDF (max. 3MB)"
