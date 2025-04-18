@@ -178,59 +178,59 @@ export default function TravelInfo() {
       />
     </Stack>
   );
+}
 
-  function useTravelInfoForm({
-    closePreviewImageDialog,
-  }: {
-    closePreviewImageDialog: () => void;
-  }) {
-    const trip = useAppSelector(selectWizardTrip);
-    const dispatch = useAppDispatch();
-    const {
-      handleSubmit,
-      control,
-      watch,
-      register,
-      setValue,
-      formState: { errors },
-      trigger,
-    } = useForm<FormInput>({
-      defaultValues: {
-        name: trip.name,
-        description: trip.description,
-        startDate: trip.startDate,
-        endDate: trip.endDate,
-        previewImage: trip.previewImage,
-      },
-    });
-    const formValues = watch();
-    const previewImageSrc = formValues.previewImage?.templateImageId
-      ? TRIP_PREVIEW_IMAGES.find(
-          (image) => image.id === formValues.previewImage?.templateImageId,
-        )?.src
-      : null;
+function useTravelInfoForm({
+  closePreviewImageDialog,
+}: {
+  closePreviewImageDialog: () => void;
+}) {
+  const trip = useAppSelector(selectWizardTrip);
+  const dispatch = useAppDispatch();
+  const {
+    handleSubmit,
+    control,
+    watch,
+    register,
+    setValue,
+    formState: { errors },
+    trigger,
+  } = useForm<FormInput>({
+    defaultValues: {
+      name: trip.name,
+      description: trip.description,
+      startDate: trip.startDate,
+      endDate: trip.endDate,
+      previewImage: trip.previewImage,
+    },
+  });
+  const formValues = watch();
+  const previewImageSrc = formValues.previewImage?.templateImageId
+    ? TRIP_PREVIEW_IMAGES.find(
+        (image) => image.id === formValues.previewImage?.templateImageId,
+      )?.src
+    : null;
 
-    const onPreviewImageSave = (previewImage: Trip["previewImage"]) => {
-      closePreviewImageDialog();
-      setValue("previewImage", previewImage);
-      trigger("previewImage");
-    };
+  const onPreviewImageSave = (previewImage: Trip["previewImage"]) => {
+    closePreviewImageDialog();
+    setValue("previewImage", previewImage);
+    trigger("previewImage");
+  };
 
-    const onSubmit: SubmitHandler<FormInput> = (data) => {
-      dispatch(setTravelInformation(data));
-      dispatch(nextStep());
-    };
+  const onSubmit: SubmitHandler<FormInput> = (data) => {
+    dispatch(setTravelInformation(data));
+    dispatch(nextStep());
+  };
 
-    return {
-      handleSubmit,
-      control,
-      onSubmit,
-      formValues,
-      register,
-      trigger,
-      errors,
-      previewImageSrc,
-      onPreviewImageSave,
-    };
-  }
+  return {
+    handleSubmit,
+    control,
+    onSubmit,
+    formValues,
+    register,
+    trigger,
+    errors,
+    previewImageSrc,
+    onPreviewImageSave,
+  };
 }

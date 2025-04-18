@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 
-import { Box, Grid2 } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 import LoginBackground from "@features/auth/assets/login-background.png";
 import SignUpBackground from "@features/auth/assets/sign-up-background.png";
@@ -13,7 +13,7 @@ export default function AuthLayout() {
 
   return (
     <>
-      <Grid2
+      <Grid
         container
         component="main"
         sx={{
@@ -23,7 +23,7 @@ export default function AuthLayout() {
           //"100dvh" "webkit-fill-available"
         }}
       >
-        <Grid2
+        <Grid
           component="div"
           columns={{ xs: 0, sm: 4, md: 6 }}
           sx={{
@@ -39,7 +39,7 @@ export default function AuthLayout() {
             borderBottomRightRadius: 56,
           }}
         />
-        <Grid2
+        <Grid
           component="div"
           columns={{ xs: 12, sm: 8, md: 6 }}
           sx={{
@@ -65,8 +65,8 @@ export default function AuthLayout() {
             </Box>
             <Outlet />
           </Box>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </>
   );
 }
