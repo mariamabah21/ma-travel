@@ -25,10 +25,6 @@ export interface TripFile {
   url?: string | null;
 }
 
-export interface DocumentToUpload extends TripFile {
-  file?: File;
-}
-
 export interface PackingItem {
   id: string;
   text: string;
