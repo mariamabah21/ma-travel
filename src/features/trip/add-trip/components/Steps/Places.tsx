@@ -1,6 +1,5 @@
 import { type SubmitHandler } from "react-hook-form";
 
-import PlacesForm from "@features/trip/components/PlacesForm";
 import { Trip } from "@features/trip/types";
 import { useAppDispatch, useAppSelector } from "@store/index";
 
@@ -10,6 +9,7 @@ import {
   setPlaces,
 } from "../../store/tripWizardSlice";
 import Pagination from "../Navigation/Pagination";
+import PlacesForm from "../PlacesForm";
 
 interface FormInput {
   places: Trip["places"];

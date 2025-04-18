@@ -12,20 +12,12 @@ import { Colors } from "@config/styles";
 interface Props {
   mainText: string;
   subText: string;
-  showSubText: boolean;
   sx?: SxProps<Theme>;
-  onClick?: () => void;
 }
 
-export default function UploadFileButton({
-  mainText,
-  subText,
-  sx,
-  showSubText,
-  onClick,
-}: Props) {
+function UploadFileButton({ mainText, subText, sx }: Props) {
   return (
-    <Box sx={{ width: "100%", height: "100%", ...sx }} onClick={onClick}>
+    <Box sx={{ width: "100%", height: "100%", ...sx }}>
       <ButtonBase
         sx={{
           bgcolor: Colors.lightGreen,
@@ -44,12 +36,17 @@ export default function UploadFileButton({
         <Typography component="span" variant="body2">
           {mainText}
         </Typography>
-        {showSubText && (
-          <Typography component="span" color="text.secondary" variant="caption">
-            {subText}
-          </Typography>
-        )}
+        <Typography
+          component="span"
+          color="text.secondary"
+          variant="caption"
+          sx={{ display: { xs: "none", md: "block" } }}
+        >
+          {subText}
+        </Typography>
       </ButtonBase>
     </Box>
   );
 }
+
+export default UploadFileButton;
