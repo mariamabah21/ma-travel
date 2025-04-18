@@ -50,7 +50,7 @@ export default function FilesForm(props: Props) {
       sx={{ width: "100%" }}
       flexWrap="wrap"
       direction="row"
-      gap={2}
+      gap={{ xs: 1, md: 2 }}
     >
       <UploadFileButton
         onClick={onFileAdd}
