@@ -17,6 +17,7 @@
     "@mui/material": "6.4.6",
     "@mui/material-pigment-css": "^6.4.8",
     "@mui/x-date-pickers": "7.27.0",
+    "@pigment-css/react": "^0.0.30",
     "@reduxjs/toolkit": "2.3.0",
     "dayjs": "1.11.13",
     "firebase": "11.0.1",

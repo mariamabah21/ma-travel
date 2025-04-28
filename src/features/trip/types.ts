@@ -64,3 +64,9 @@ export interface Trip {
   packingLists: PackingList[];
   photos: TripFile[];
 }
+
+export interface DocumentToUpload {
+  file: File;
+  fileName: string;
+  storagePath?: string;
+}

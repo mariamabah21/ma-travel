@@ -2,11 +2,11 @@ import { useState } from "react";
 
 import { ButtonBase, Grid } from "@mui/material";
 
+import UploadFileButton from "@features/trip/components/Files/UploadFileButton";
 import AppDialog from "@features/ui/AppDialog";
 
 import { TRIP_PREVIEW_IMAGES } from "../data";
 import type { Trip } from "../types";
-import UploadFileButton from "./UploadFileButton";
 
 interface Props {
   isOpen: boolean;
