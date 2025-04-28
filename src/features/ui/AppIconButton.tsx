@@ -5,20 +5,25 @@ interface Props {
   onClick: () => void;
   "aria-label": string;
   children: JSX.Element;
+  variant?: "outlined" | "contained";
+  disabled?: boolean;
+  isLoading?: boolean;
   sx?: SxProps<Theme>;
 }
 
 export default function AppIconButton(props: Props) {
   return (
     <Button
+      loading={props.isLoading}
       onClick={props.onClick}
       aria-label={props["aria-label"]}
-      variant="outlined"
+      variant={props.variant ?? "outlined"}
+      disabled={props.disabled}
       sx={{
         borderRadius: 2,
         minWidth: "auto",
-        width: { xs: props.isSmall ? 34 : 48, md: props.isSmall ? 34 : 58 },
-        height: { xs: props.isSmall ? 34 : 48, md: props.isSmall ? 34 : 58 },
+        width: props.isSmall ? 34 : { xs: 48, md: 58 },
+        height: props.isSmall ? 34 : { xs: 48, md: 58 },
         ...props.sx,
       }}
     >
